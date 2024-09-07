@@ -4,12 +4,12 @@ Simple Command Line Interface (CLI) Application to manage tasks. It allows us to
 
 ## Features
 
-**Add Task:**- Add new tasks with ID and store it in `JSON` format.
-**Update Task:**- Update the description of an existing task With ID.
-**List Tasks:**- List All Tasks in JSON file
-**List Task By status:**- List All Tasks By status
-**Mark Task By status:**-Mark Task By status as 'todo' or 'in-progress' or 'done'
-**Show All commands:**-Show all available commands
+- **Add Task:**- Add new tasks with ID and store it in `JSON` format.
+- **Update Task:**- Update the description of an existing task With ID.
+- **List Tasks:**- List All Tasks in JSON file
+- **List Task By status:**- List All Tasks By status
+- **Mark Task By status:**-Mark Task By status as 'todo' or 'in-progress' or 'done'
+- **Show All commands:**-Show all available commands
 
 ## Prerequisites
 
