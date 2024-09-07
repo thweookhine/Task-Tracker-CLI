@@ -28,6 +28,17 @@ cd Task-Tracker-CLI
 
 ## Usage
 
+- **Show All Commands**
+
+```bash
+# Showing All Commands
+node index.js help
+#OR
+node index.js -h
+#OR
+node index.js --help
+```
+
 - **Add a Task**
 
 ```bash
@@ -64,7 +75,6 @@ node index.js --list
 ```bash
 # To list the tasks that are marked as to-do
 node index.js list to-do
-#OR
 
 # To list the tasks that are marked as in-progess
 node index.js list in-progress
