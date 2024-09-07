@@ -1,5 +1,6 @@
 // app.js
 const fs = require('fs')
+const { takeCoverage } = require('v8')
 const yargs = require('yargs')
 
 const filePath = './tasks.json'
@@ -110,51 +111,81 @@ const addTask = (desc) => {
 
   // Write updated Tasks to tasks.json
   fs.writeFileSync(filePath, JSON.stringify(tasks), 'utf8');
-
+  
+  console.log(`You have successfully added Task ${JSON.stringify(task)}`)
 }
 
 const deleteTask = (id) => {
   // Read tasks from tasks.json
   let tasks = readTasks();
+  let deletedTask = ''
+  let updatedTasks = []
   // Remove specified Task in tasks
-  let updatedTasks = tasks.filter(task => task.id != id );
-  // Write updated Tasks to tasks.json
-  fs.writeFileSync(filePath,JSON.stringify(updatedTasks),'utf8');
+  tasks.map(task =>{
+    if(task.id == id ){
+      deletedTask = task;
+      return;
+    }else{
+      updatedTasks.push(task.id)
+    }
+  });
+
+  if(deletedTask != ''){
+    // Write updated Tasks to tasks.json
+    fs.writeFileSync(filePath,JSON.stringify(updatedTasks),'utf8');
+    console.log(`You have successfully deleted task with ID ${id}`)
+  }else {
+    console.log('Please Try to delete task with only existing ID.')
+  }
 }
 
 const updateTask = (id,desc) => {
   // Read tasks from tasks.json
   let tasks = readTasks();
+  let updatedTask = '';
 
   // Update task with specified id
   let updatedTasks = tasks.map((task) => {
     if(task.id == id) {
       task.desc = desc;
       task.updatedAt = new Date();
+      updatedTask = task;
     }
     return task;
   })
 
-  // Write updated Tasks to tasks.json
-  fs.writeFileSync(filePath,JSON.stringify(updatedTasks),'utf8')
+  if(updatedTask != ''){
+    // Write updated Tasks to tasks.json
+    fs.writeFileSync(filePath,JSON.stringify(updatedTasks),'utf8')
+    console.log(`You have successfully updated task with ID ${id}. Your Updated Task is ${JSON.stringify(updatedTask)}`)
+  }else {
+    console.log('Please Write only existing ID to update')
+  }
 }
 
 const updateStatus = (id,status) => {
 
   // Read tasks from tasks.json
   let tasks = readTasks();
+  let updatedTask =''
 
   // Update status 
   let updatedTasks = tasks.map((task) => {
     if(task.id == id) {
       task.status = status
       task.updatedAt = new Date();
+      updatedTask = task;
     }
     return task;
   })
 
-  // Write updated Tasks to tasks.json
-  fs.writeFileSync(filePath,JSON.stringify(updatedTasks),'utf8')
+  if(updatedTask != ''){
+    // Write updated Tasks to tasks.json
+    fs.writeFileSync(filePath,JSON.stringify(updatedTasks),'utf8')
+    console.log(`You have successfully updated task status. Your Updated Task is ${JSON.stringify(updatedTask)}`)
+  }else {
+    console.log('Please Write Existing Task ID to update Task status.')
+  }
 }
 
 const listAllTasks = () => {
