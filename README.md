@@ -32,24 +32,39 @@ cd Task-Tracker-CLI
 
 ```bash
 # Adding a new task
-node index.js add "Drink a Coffee"
+node index.js add "Task1"
 #OR
-node index.js -a "Drink a Coffee"
+node index.js -a "Task1"
 #OR
-node index.js --add "Drink a Coffee"
+node index.js --add "Task1"
+```
+
+- **Update a Task**
+
+```bash
+node index.js update 1 "Updated Task1"
+#OR
+node index.js -u 1 "Updated Task1"
+#OR
+node index.js --update 1 "Updated Task1"
 ```
 
 - **List all Tasks**
 
 ```bash
 node index.js list
+#OR
+node index.js -l
+#OR
+node index.js --list
 ```
 
-- **or by list the tasks by status**
+- **List the tasks by status**
 
 ```bash
 # To list the tasks that are marked as to-do
 node index.js list to-do
+#OR
 
 # To list the tasks that are marked as in-progess
 node index.js list in-progress
@@ -58,15 +73,12 @@ node index.js list in-progress
 node index.js list done
 ```
 
-- **Update a Task**
-
-```bash
-node index.js update 1 "Drink a Coffee and Do Coding"
-```
-
 - **Mark Task Status**
 
 ```bash
+# Mark as `todo` with containing task ID as 1
+node index.js mark-todo 1
+
 # Mark as `in-progress` with containing task ID as 1
 node index.js mark-in-progress 1
 
