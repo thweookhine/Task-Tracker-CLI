@@ -277,6 +277,7 @@ switch(args[0]) {
         showAllCommands()
       }
     }else {
+      console.log('Command Not Found')
       showAllCommands()
     }
 }
