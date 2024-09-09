@@ -126,7 +126,7 @@ const deleteTask = (id) => {
       deletedTask = task;
       return;
     }else{
-      updatedTasks.push(task.id)
+      updatedTasks.push(task)
     }
   });
 
@@ -190,13 +190,31 @@ const updateStatus = (id,status) => {
 
 const listAllTasks = () => {
   let tasks = readTasks();
-  console.log(tasks);
+  if(tasks.length <= 0){
+    console.log('You have no any tasks yet.')
+  }else {
+    console.log(tasks);
+  }
 }
 
 const listByStatus = (status) => {
   let tasks = readTasks();
   let taskByStatus = tasks.filter(task => task.status == status);
-  console.log(taskByStatus)
+  if(taskByStatus.length <= 0){
+    switch(status){
+      case 'todo':
+        console.log('Hmm, Try to add a task. 🙂')
+        break;
+      case 'in-progress':
+        console.log('Nothing in progress‼️')
+        break;
+      case 'done':
+        console.log("You haven't finished any tasks 😒");
+        break;
+    }
+  }else{
+    console.log(taskByStatus)
+  }
 }
 
 // Checkk args length

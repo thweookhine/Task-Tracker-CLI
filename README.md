@@ -74,7 +74,7 @@ node index.js --list
 
 ```bash
 # To list the tasks that are marked as to-do
-node index.js list to-do
+node index.js list todo
 
 # To list the tasks that are marked as in-progess
 node index.js list in-progress
