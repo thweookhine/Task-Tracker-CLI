@@ -103,8 +103,14 @@ const addTask = (desc) => {
   let task ={
     desc
   }
-  // Create task with Desc from Input and Default Value for others. 
-  task = createTaskStructure(task, tasks.length-1)
+  // Create task with Desc from Input and Default Value for others.
+  let lastId
+  if(tasks.length > 0){
+    lastId = tasks[tasks.length-1].id;
+  }else {
+    lastId = 0
+  }
+  task = createTaskStructure(task, lastId)
 
   // Add new task to tasks array
   tasks.push(task);
