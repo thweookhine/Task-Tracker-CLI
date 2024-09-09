@@ -112,7 +112,7 @@ const addTask = (desc) => {
   // Write updated Tasks to tasks.json
   fs.writeFileSync(filePath, JSON.stringify(tasks), 'utf8');
   
-  console.log(`You have successfully added Task ${JSON.stringify(task)}`)
+  console.log(`You have successfully added Task (${task.desc})`)
 }
 
 const deleteTask = (id) => {
